@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>document.documentElement.classList.add('js')</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}NEVA{% endblock %}</title>
+    <meta name="description" content="Emporium is a free multi-category e-commerce website template built on Bootstrap 5 — product grid, filtering, slide-in cart, countdown deals, and a full product page. jQuery-free.">
+    <meta name="theme-color" content="#0c6b58">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    {% block extra_css %}{% endblock %}
+  </head>
+  <body>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Announcement bar -->
+    <div class="announce" role="region" aria-label="Store announcements">
+      <div class="container announce__inner">
+        <p class="announce__msg"><span aria-hidden="true">✦</span> Free shipping on orders over <strong>$49</strong> — Summer Sale ends soon</p>
+        <div class="announce__links">
+          <a href="#">Track order</a>
+          <a href="#">Help</a>
+          <span class="announce__cc" aria-label="Currency">USD $</span>
+        </div>
+      </div>
+    </div>
+
+   {% include 'includes/navbar.html' %}
+
+   {% block content %}{% endblock %}
+
+   {% include "includes/footer.html" %}
+
+    <!-- Cart drawer -->
+    <div class="cart-overlay" data-cart-overlay hidden></div>
+    <aside class="cart" id="cartDrawer" aria-label="Shopping cart" aria-modal="true" role="dialog" aria-hidden="true" tabindex="-1">
+      <div class="cart__head">
+        <h2 class="cart__title">Your cart <span data-cart-count-text>(0)</span></h2>
+        <button type="button" class="cart__close" data-cart-close aria-label="Close cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div class="cart__ship" data-ship-wrap>
+        <p class="cart__shipmsg" data-ship-msg>Add <strong>$49.00</strong> more for free shipping</p>
+        <div class="cart__shipbar"><span data-ship-bar style="width:0%"></span></div>
+      </div>
+      <ul class="cart__items" data-cart-items></ul>
+      <div class="cart__empty" data-cart-empty>
+        <p>Your cart is empty.</p>
+        <button type="button" class="btn-emp btn-emp--ghost" data-cart-close>Start shopping</button>
+      </div>
+      <div class="cart__foot" data-cart-foot hidden>
+        <div class="cart__subtotal">
+          <span>Subtotal</span>
+          <strong data-cart-subtotal>$0.00</strong>
+        </div>
+        <p class="cart__note">Shipping &amp; taxes calculated at checkout.</p>
+        <button type="button" class="btn-emp btn-emp--primary btn-emp--block">Checkout</button>
+        <button type="button" class="cart__continue" data-cart-close>Continue shopping</button>
+      </div>
+    </aside>
+
+    <!-- Toasts -->
+    <div class="toasts" data-toasts aria-live="polite" aria-atomic="false"></div>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+  </body>
+</html>

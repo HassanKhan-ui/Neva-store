@@ -31,51 +31,31 @@
 
     <main id="main">
 
-      <!-- Hero -->
-      <section class="hero" aria-label="Featured promotion">
+          <!-- Hero -->
+      <section class="hero" aria-label="Welcome to NEVA">
         <div class="container">
           <div class="hero__grid">
             <div class="hero__main">
-              <p class="hero__eyebrow reveal">Summer Sale · Up to 40% off</p>
-              <h1 class="hero__title reveal">Everything for the season, <em>in one cart.</em></h1>
-              <p class="hero__lead reveal">Electronics, home essentials, sports gear and more — thousands of products at prices worth switching for. New markdowns added every week.</p>
+              <p class="hero__eyebrow reveal">Vitamins · Minerals · Everyday wellness</p>
+              <h1 class="hero__title reveal">Daily wellness, <em>made simple.</em></h1>
+              <p class="hero__lead reveal">Shop vitamins, minerals, multivitamins and omega oils to support your daily nutrition. Order online and pay with cash on delivery.</p>
               <div class="hero__cta reveal">
-                <a href="#products" class="btn-emp btn-emp--primary">Shop the sale</a>
+                <a href="#products" class="btn-emp btn-emp--primary">Shop supplements</a>
                 <a href="#categories" class="btn-emp btn-emp--ghost">Browse categories</a>
               </div>
               <ul class="hero__meta reveal">
-                <li><strong>2M+</strong> happy customers</li>
-                <li><strong>4.8/5</strong> average rating</li>
-                <li><strong>30-day</strong> free returns</li>
+                <li><strong>COD</strong> available</li>
+                <li><strong>Clear</strong> product labels</li>
+                <li><strong>Easy</strong> online ordering</li>
               </ul>
             </div>
             <div class="hero__media">
-              <img src={% static "img/hero-product.jpg" %} width="640" height="720" alt="A curated flat-lay of headphones, a smart watch, sneakers and home goods on a bright surface" fetchpriority="high" class="hero__img">
+              <img src="{% static 'img/hero-product.jpg' %}" width="640" height="720" alt="NEVA supplement bottle" fetchpriority="high" class="hero__img">
               <div class="hero__badge" aria-hidden="true">
-                <span class="hero__badge-off">-40%</span>
-                <span class="hero__badge-txt">Season<br>Deals</span>
+                <span class="hero__badge-off">NEVA</span>
+                <span class="hero__badge-txt">Daily<br>Wellness</span>
               </div>
             </div>
-          </div>
-
-          <!-- Secondary promo cards -->
-          <div class="hero__promos">
-            <a href="#products" class="promo promo--a reveal" data-filter-link="electronics">
-              <img src={% static "img/promo-electronics.jpg" %} width="360" height="220" loading="lazy" alt="Wireless earbuds and a smart speaker on a teal backdrop">
-              <div class="promo__body">
-                <span class="promo__kicker">New tech in</span>
-                <span class="promo__title">Electronics from $19</span>
-                <span class="promo__link">Shop now →</span>
-              </div>
-            </a>
-            <a href="#products" class="promo promo--b reveal" data-filter-link="home">
-              <img src={% static "img/promo-home.jpg" %} width="360" height="220" loading="lazy" alt="A styled shelf with a ceramic lamp, mugs and folded linens">
-              <div class="promo__body">
-                <span class="promo__kicker">Refresh your space</span>
-                <span class="promo__title">Home &amp; Living up to 30% off</span>
-                <span class="promo__link">Shop now →</span>
-              </div>
-            </a>
           </div>
         </div>
       </section>
@@ -91,85 +71,24 @@
             <a href="#products" class="section__link">View all products →</a>
           </div>
           <div class="cats">
-            <a href="#products" class="cat reveal" data-filter-link="electronics">
-              <span class="cat__img"><img src={% static "img/cat-electronics.jpg" %} width="200" height="200" loading="lazy" alt="Over-ear headphones"></span>
-              <span class="cat__name">Electronics</span>
-              <span class="cat__count">320+ items</span>
+            {% for category in categories %}
+            <a href="#products" class="cat reveal" data-filter-link="{{ category.slug }}">
+              <span class="cat__img">
+                {% if category.image %}
+                  <img src="{{ category.image.url }}" width="200" height="200" loading="lazy" alt="{{ category.name }}">
+                {% else %}
+                  <img src="{% static 'img/cat-home.jpg' %}" width="200" height="200" loading="lazy" alt="{{ category.name }}">
+                {% endif %}
+              </span>
+              <span class="cat__name">{{ category.name }}</span>
+              <span class="cat__count">{{ category.product_count }} item{{ category.product_count|pluralize }}</span>
             </a>
-            <a href="#products" class="cat reveal" data-filter-link="home">
-              <span class="cat__img"><img src={% static "img/cat-home.jpg" %} width="200" height="200" loading="lazy" alt="A ceramic table lamp"></span>
-              <span class="cat__name">Home &amp; Living</span>
-              <span class="cat__count">540+ items</span>
-            </a>
-            <a href="#products" class="cat reveal" data-filter-link="fashion">
-              <span class="cat__img"><img src={% static "img/cat-fashion.jpg" %} width="200" height="200" loading="lazy" alt="A folded leather wallet"></span>
-              <span class="cat__name">Fashion</span>
-              <span class="cat__count">780+ items</span>
-            </a>
-            <a href="#products" class="cat reveal" data-filter-link="sports">
-              <span class="cat__img"><img src={% static "img/cat-sports.jpg" %} width="200" height="200" loading="lazy" alt="A pair of running shoes"></span>
-              <span class="cat__name">Sports</span>
-              <span class="cat__count">410+ items</span>
-            </a>
-            <a href="#products" class="cat reveal" data-filter-link="beauty">
-              <span class="cat__img"><img src={% static "img/cat-beauty.jpg" %} width="200" height="200" loading="lazy" alt="A glass serum dropper bottle"></span>
-              <span class="cat__name">Beauty</span>
-              <span class="cat__count">260+ items</span>
-            </a>
-            <a href="#deals" class="cat cat--deal reveal">
-              <span class="cat__img"><img src={% static "img/cat-deals.jpg" %} width="200" height="200" loading="lazy" alt="A gift box with a sale tag"></span>
-              <span class="cat__name">Deals</span>
-              <span class="cat__count">Save up to 40%</span>
-            </a>
+            {% endfor %}
           </div>
         </div>
       </section>
 
-      <!-- Deal of the day -->
-      <section class="section deal" id="deals" aria-labelledby="deal-h">
-        <div class="container">
-          <div class="deal__card reveal">
-            <div class="deal__media">
-              <img src={% static "img/deal-earbuds.jpg" %} width="520" height="440" loading="lazy" alt="Orbit Pro wireless earbuds with charging case">
-              <span class="deal__flag">Deal of the day</span>
-            </div>
-            <div class="deal__body">
-              <p class="eyebrow eyebrow--light">Today only · while stocks last</p>
-              <h2 class="deal__title" id="deal-h">Orbit Pro Wireless Earbuds</h2>
-              <div class="deal__rating" aria-label="Rated 4.9 out of 5">
-                <span class="stars" style="--rate:98%" aria-hidden="true"></span>
-                <span class="deal__reviews">4.9 (2,140 reviews)</span>
-              </div>
-              <p class="deal__desc">Active noise cancelling, 36-hour battery with the case, and a secure sport fit. Our lowest price of the season — only for the next few hours.</p>
-              <div class="deal__price">
-                <span class="price-now">$59.00</span>
-                <span class="price-was">$99.00</span>
-                <span class="price-save">Save 40%</span>
-              </div>
-              <div class="deal__count" role="timer" aria-live="off" aria-label="Time remaining on this deal">
-                <div class="cd" data-countdown>
-                  <span class="cd__unit"><b data-cd="hours">00</b><small>Hrs</small></span>
-                  <span class="cd__sep">:</span>
-                  <span class="cd__unit"><b data-cd="minutes">00</b><small>Min</small></span>
-                  <span class="cd__sep">:</span>
-                  <span class="cd__unit"><b data-cd="seconds">00</b><small>Sec</small></span>
-                </div>
-              </div>
-              <div class="deal__stock">
-                <div class="deal__stockbar"><span style="width:38%"></span></div>
-                <p><strong>76 sold</strong> · only 24 left in stock</p>
-              </div>
-              <button class="btn-emp btn-emp--primary btn-emp--lg" type="button"
-                data-add-to-cart
-                data-id="orbit-pro"
-                data-name="Orbit Pro Wireless Earbuds"
-                data-price="59.00"
-                data-img="img/deal-earbuds.jpg">Add to cart · $59.00</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
+    
       <!-- Featured products -->
       <section class="section" id="products" aria-labelledby="prod-h">
         <div class="container">

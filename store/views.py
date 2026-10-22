@@ -1,9 +1,11 @@
+from django.db.models import Count, Q
 from django.shortcuts import render
 from .models import Category, Product
 
-
 def home(request):
-    categories = Category.objects.all()
+    categories = Category.objects.annotate(
+        product_count=Count('products', filter=Q(products__is_active=True))
+    )
     featured_products = (
         Product.objects.filter(is_active=True, is_featured=True)
         .select_related('category')[:8]

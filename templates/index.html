@@ -181,203 +181,44 @@
           </div>
 
           <div class="filters" role="tablist" aria-label="Filter products by category">
-            <button class="filter is-active" data-filter="all" role="tab" aria-selected="true">All</button>
-            <button class="filter" data-filter="electronics" role="tab" aria-selected="false">Electronics</button>
-            <button class="filter" data-filter="home" role="tab" aria-selected="false">Home &amp; Living</button>
-            <button class="filter" data-filter="fashion" role="tab" aria-selected="false">Fashion</button>
-            <button class="filter" data-filter="sports" role="tab" aria-selected="false">Sports</button>
-            <button class="filter" data-filter="beauty" role="tab" aria-selected="false">Beauty</button>
+          <button class="filter is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+          {% for category in categories %}
+          <button class="filter" data-filter="{{ category.slug }}" role="tab" aria-selected="false">{{ category.name }}</button>
+          {% endfor %}
           </div>
 
           <div class="pgrid" data-products>
-
-            <!-- 1 -->
-            <article class="pcard reveal" data-category="electronics">
-              <div class="pcard__media">
-                <span class="badge-emp badge-emp--sale">Sale</span>
-                <button class="pcard__wish" type="button" aria-label="Add Aurora Wireless Headphones to wishlist" aria-pressed="false">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20s-7-4.35-9.2-8.3C1.1 8.4 2.6 5 6 5c2 0 3.2 1.2 4 2.3C10.8 6.2 12 5 14 5c3.4 0 4.9 3.4 3.2 6.7C19 15.65 12 20 12 20Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-                </button>
-                <a href="product.html" class="pcard__imglink">
-                  <img src={% static "img/1.jpg" %} width="300" height="300" loading="lazy" alt="Aurora over-ear wireless headphones in charcoal"></a>
-                <button class="pcard__quick" type="button"
-                  data-add-to-cart data-id="aurora-hp" data-name="Aurora Wireless Headphones" data-price="129.00" data-img={% static "img/product-headphones.jpg" %}>Quick add</button>
-              </div>
-              <div class="pcard__body">
-                <span class="pcard__cat">Electronics</span>
-                <h3 class="pcard__title"><a href="product.html">Aurora Wireless Headphones</a></h3>
-                <div class="pcard__rate"><span class="stars" style="--rate:96%" aria-hidden="true"></span><span class="pcard__rnum">4.8</span></div>
-                <div class="pcard__price"><span class="price-now">$129.00</span><span class="price-was">$179.00</span></div>
-              </div>
-            </article>
-
-            <!-- 2 -->
-            <article class="pcard reveal" data-category="electronics">
-              <div class="pcard__media">
-                <span class="badge-emp badge-emp--best">Bestseller</span>
-                <button class="pcard__wish" type="button" aria-label="Add PulseFit Smart Watch to wishlist" aria-pressed="false">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20s-7-4.35-9.2-8.3C1.1 8.4 2.6 5 6 5c2 0 3.2 1.2 4 2.3C10.8 6.2 12 5 14 5c3.4 0 4.9 3.4 3.2 6.7C19 15.65 12 20 12 20Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-                </button>
-                <a href="product.html" class="pcard__imglink"><img src={% static "img/product-watch.jpg" %} width="300" height="300" loading="lazy" alt="PulseFit fitness smart watch with a black band"></a>
-                <button class="pcard__quick" type="button"
-                  data-add-to-cart data-id="pulsefit" data-name="PulseFit Smart Watch" data-price="89.00" data-img={% static "img/product-watch.jpg" %}>Quick add</button>
-              </div>
-              <div class="pcard__body">
-                <span class="pcard__cat">Electronics</span>
-                <h3 class="pcard__title"><a href="product.html">PulseFit Smart Watch</a></h3>
-                <div class="pcard__rate"><span class="stars" style="--rate:92%" aria-hidden="true"></span><span class="pcard__rnum">4.6</span></div>
-                <div class="pcard__price"><span class="price-now">$89.00</span><span class="price-was">$119.00</span></div>
-              </div>
-            </article>
-
-            <!-- 3 -->
-            <article class="pcard reveal" data-category="home">
-              <div class="pcard__media">
-                <button class="pcard__wish" type="button" aria-label="Add NordHome Ceramic Mug Set to wishlist" aria-pressed="false">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20s-7-4.35-9.2-8.3C1.1 8.4 2.6 5 6 5c2 0 3.2 1.2 4 2.3C10.8 6.2 12 5 14 5c3.4 0 4.9 3.4 3.2 6.7C19 15.65 12 20 12 20Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-                </button>
-                <a href="product.html" class="pcard__imglink"><img src={% static "img/product-mugs.jpg" %} width="300" height="300" loading="lazy" alt="A set of four stoneware ceramic mugs in earth tones"></a>
-                <button class="pcard__quick" type="button"
-                  data-add-to-cart data-id="nordhome-mugs" data-name="NordHome Ceramic Mug Set" data-price="34.00" data-img={% static "img/product-mugs.jpg" %}>Quick add</button>
-              </div>
-              <div class="pcard__body">
-                <span class="pcard__cat">Home &amp; Living</span>
-                <h3 class="pcard__title"><a href="product.html">NordHome Ceramic Mug Set</a></h3>
-                <div class="pcard__rate"><span class="stars" style="--rate:94%" aria-hidden="true"></span><span class="pcard__rnum">4.7</span></div>
-                <div class="pcard__price"><span class="price-now">$34.00</span></div>
-              </div>
-            </article>
-
-            <!-- 4 -->
-            <article class="pcard reveal" data-category="electronics">
-              <div class="pcard__media">
-                <span class="badge-emp badge-emp--sale">Sale</span>
-                <button class="pcard__wish" type="button" aria-label="Add Atlas 4K Action Camera to wishlist" aria-pressed="false">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20s-7-4.35-9.2-8.3C1.1 8.4 2.6 5 6 5c2 0 3.2 1.2 4 2.3C10.8 6.2 12 5 14 5c3.4 0 4.9 3.4 3.2 6.7C19 15.65 12 20 12 20Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-                </button>
-                <a href="product.html" class="pcard__imglink"><img src={% static "img/product-camera.jpg" %} width="300" height="300" loading="lazy" alt="Atlas compact 4K action camera in a rugged housing"></a>
-                <button class="pcard__quick" type="button"
-                  data-add-to-cart data-id="atlas-cam" data-name="Atlas 4K Action Camera" data-price="199.00" data-img={% static "img/product-camera.jpg" %}>Quick add</button>
-              </div>
-              <div class="pcard__body">
-                <span class="pcard__cat">Electronics</span>
-                <h3 class="pcard__title"><a href="product.html">Atlas 4K Action Camera</a></h3>
-                <div class="pcard__rate"><span class="stars" style="--rate:90%" aria-hidden="true"></span><span class="pcard__rnum">4.5</span></div>
-                <div class="pcard__price"><span class="price-now">$199.00</span><span class="price-was">$249.00</span></div>
-              </div>
-            </article>
-
-            <!-- 5 -->
-            <article class="pcard reveal" data-category="sports">
-              <div class="pcard__media">
-                <span class="badge-emp badge-emp--sale">Sale</span>
-                <button class="pcard__wish" type="button" aria-label="Add Cloudstep Running Shoes to wishlist" aria-pressed="false">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20s-7-4.35-9.2-8.3C1.1 8.4 2.6 5 6 5c2 0 3.2 1.2 4 2.3C10.8 6.2 12 5 14 5c3.4 0 4.9 3.4 3.2 6.7C19 15.65 12 20 12 20Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-                </button>
-                <a href="product.html" class="pcard__imglink"><img src={% static "img/product-shoes.jpg" %} width="300" height="300" loading="lazy" alt="Cloudstep lightweight running shoes in mint and white"></a>
-                <button class="pcard__quick" type="button"
-                  data-add-to-cart data-id="cloudstep" data-name="Cloudstep Running Shoes" data-price="74.00" data-img={% static "img/product-shoes.jpg" %}>Quick add</button>
-              </div>
-              <div class="pcard__body">
-                <span class="pcard__cat">Sports</span>
-                <h3 class="pcard__title"><a href="product.html">Cloudstep Running Shoes</a></h3>
-                <div class="pcard__rate"><span class="stars" style="--rate:88%" aria-hidden="true"></span><span class="pcard__rnum">4.4</span></div>
-                <div class="pcard__price"><span class="price-now">$74.00</span><span class="price-was">$95.00</span></div>
-              </div>
-            </article>
-
-            <!-- 6 -->
-            <article class="pcard reveal" data-category="home">
-              <div class="pcard__media">
-                <span class="badge-emp badge-emp--new">New</span>
-                <button class="pcard__wish" type="button" aria-label="Add Lumen Desk Lamp to wishlist" aria-pressed="false">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20s-7-4.35-9.2-8.3C1.1 8.4 2.6 5 6 5c2 0 3.2 1.2 4 2.3C10.8 6.2 12 5 14 5c3.4 0 4.9 3.4 3.2 6.7C19 15.65 12 20 12 20Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-                </button>
-                <a href="product.html" class="pcard__imglink"><img src={% static "img/product-lamp.jpg" %} width="300" height="300" loading="lazy" alt="Lumen minimalist LED desk lamp in matte sage"></a>
-                <button class="pcard__quick" type="button"
-                  data-add-to-cart data-id="lumen-lamp" data-name="Lumen Desk Lamp" data-price="49.00" data-img={% static "img/product-lamp.jpg" %}>Quick add</button>
-              </div>
-              <div class="pcard__body">
-                <span class="pcard__cat">Home &amp; Living</span>
-                <h3 class="pcard__title"><a href="product.html">Lumen Desk Lamp</a></h3>
-                <div class="pcard__rate"><span class="stars" style="--rate:98%" aria-hidden="true"></span><span class="pcard__rnum">4.9</span></div>
-                <div class="pcard__price"><span class="price-now">$49.00</span></div>
-              </div>
-            </article>
-
-            <!-- 7 -->
-            <article class="pcard reveal" data-category="beauty">
-              <div class="pcard__media">
-                <button class="pcard__wish" type="button" aria-label="Add Verde Glow Vitamin C Serum to wishlist" aria-pressed="false">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20s-7-4.35-9.2-8.3C1.1 8.4 2.6 5 6 5c2 0 3.2 1.2 4 2.3C10.8 6.2 12 5 14 5c3.4 0 4.9 3.4 3.2 6.7C19 15.65 12 20 12 20Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-                </button>
-                <a href="product.html" class="pcard__imglink"><img src={% static "img/product-serum.jpg" %} width="300" height="300" loading="lazy" alt="Verde Glow vitamin C serum in an amber glass dropper bottle"></a>
-                <button class="pcard__quick" type="button"
-                  data-add-to-cart data-id="verde-serum" data-name="Verde Glow Vitamin C Serum" data-price="28.00" data-img={% static "img/product-serum.jpg" %}>Quick add</button>
-              </div>
-              <div class="pcard__body">
-                <span class="pcard__cat">Beauty</span>
-                <h3 class="pcard__title"><a href="product.html">Verde Glow Vitamin C Serum</a></h3>
-                <div class="pcard__rate"><span class="stars" style="--rate:92%" aria-hidden="true"></span><span class="pcard__rnum">4.6</span></div>
-                <div class="pcard__price"><span class="price-now">$28.00</span></div>
-              </div>
-            </article>
-
-            <!-- 8 -->
-            <article class="pcard reveal" data-category="sports">
-              <div class="pcard__media">
-                <span class="badge-emp badge-emp--deal">Deal</span>
-                <button class="pcard__wish" type="button" aria-label="Add TrailPro Yoga Mat to wishlist" aria-pressed="false">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20s-7-4.35-9.2-8.3C1.1 8.4 2.6 5 6 5c2 0 3.2 1.2 4 2.3C10.8 6.2 12 5 14 5c3.4 0 4.9 3.4 3.2 6.7C19 15.65 12 20 12 20Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-                </button>
-                <a href="product.html" class="pcard__imglink"><img src={% static "img/product-yogamat.jpg" %} width="300" height="300" loading="lazy" alt="TrailPro rolled yoga mat in deep teal with a carry strap"></a>
-                <button class="pcard__quick" type="button"
-                  data-add-to-cart data-id="trailpro-mat" data-name="TrailPro Yoga Mat" data-price="39.00" data-img={% static "img/product-yogamat.jpg" %}>Quick add</button>
-              </div>
-              <div class="pcard__body">
-                <span class="pcard__cat">Sports</span>
-                <h3 class="pcard__title"><a href="product.html">TrailPro Yoga Mat</a></h3>
-                <div class="pcard__rate"><span class="stars" style="--rate:94%" aria-hidden="true"></span><span class="pcard__rnum">4.7</span></div>
-                <div class="pcard__price"><span class="price-now">$39.00</span><span class="price-was">$52.00</span></div>
-              </div>
-            </article>
-
-            <!-- 9 -->
-            <article class="pcard reveal" data-category="fashion">
-              <div class="pcard__media">
-                <button class="pcard__wish" type="button" aria-label="Add Meridian Leather Wallet to wishlist" aria-pressed="false">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20s-7-4.35-9.2-8.3C1.1 8.4 2.6 5 6 5c2 0 3.2 1.2 4 2.3C10.8 6.2 12 5 14 5c3.4 0 4.9 3.4 3.2 6.7C19 15.65 12 20 12 20Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-                </button>
-                <a href="product.html" class="pcard__imglink"><img src={% static "img/product-wallet.jpg" %} width="300" height="300" loading="lazy" alt="Meridian slim bifold leather wallet in tan"></a>
-                <button class="pcard__quick" type="button"
-                  data-add-to-cart data-id="meridian-wallet" data-name="Meridian Leather Wallet" data-price="45.00" data-img={% static "img/product-wallet.jpg" %}>Quick add</button>
-              </div>
-              <div class="pcard__body">
-                <span class="pcard__cat">Fashion</span>
-                <h3 class="pcard__title"><a href="product.html">Meridian Leather Wallet</a></h3>
-                <div class="pcard__rate"><span class="stars" style="--rate:90%" aria-hidden="true"></span><span class="pcard__rnum">4.5</span></div>
-                <div class="pcard__price"><span class="price-now">$45.00</span></div>
-              </div>
-            </article>
-
-            <!-- 10 -->
-            <article class="pcard reveal" data-category="home">
-              <div class="pcard__media">
-                <span class="badge-emp badge-emp--best">Bestseller</span>
-                <button class="pcard__wish" type="button" aria-label="Add AeroBrew Coffee Maker to wishlist" aria-pressed="false">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20s-7-4.35-9.2-8.3C1.1 8.4 2.6 5 6 5c2 0 3.2 1.2 4 2.3C10.8 6.2 12 5 14 5c3.4 0 4.9 3.4 3.2 6.7C19 15.65 12 20 12 20Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-                </button>
-                <a href="product.html" class="pcard__imglink"><img src={% static "img/product-coffee.jpg" %} width="300" height="300" loading="lazy" alt="AeroBrew drip coffee maker in brushed steel"></a>
-                <button class="pcard__quick" type="button"
-                  data-add-to-cart data-id="aerobrew" data-name="AeroBrew Coffee Maker" data-price="109.00" data-img={% static "img/product-coffee.jpg" %}>Quick add</button>
-              </div>
-              <div class="pcard__body">
-                <span class="pcard__cat">Home &amp; Living</span>
-                <h3 class="pcard__title"><a href="product.html">AeroBrew Coffee Maker</a></h3>
-                <div class="pcard__rate"><span class="stars" style="--rate:96%" aria-hidden="true"></span><span class="pcard__rnum">4.8</span></div>
-                <div class="pcard__price"><span class="price-now">$109.00</span><span class="price-was">$139.00</span></div>
-              </div>
-            </article>
+                    {% for product in featured_products %}
+        <article class="pcard reveal" data-category="{{ product.category.slug }}">
+          <div class="pcard__media">
+            {% if product.old_price %}<span class="badge-emp badge-emp--sale">Sale</span>{% endif %}
+            <a href="{% url 'product' %}" class="pcard__imglink">
+              {% if product.image %}
+                <img src="{{ product.image.url }}" width="300" height="300" loading="lazy" alt="{{ product.name }}">
+              {% else %}
+                <img src="{% static 'img/1.jpg' %}" width="300" height="300" loading="lazy" alt="{{ product.name }}">
+              {% endif %}
+            </a>
+            {% if product.in_stock %}
+            <button class="pcard__quick" type="button"
+              data-add-to-cart data-id="{{ product.id }}" data-name="{{ product.name }}" data-price="{{ product.price }}"
+              data-img="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/1.jpg' %}{% endif %}">Quick add</button>
+            {% else %}
+            <button class="pcard__quick" type="button" disabled>Out of stock</button>
+            {% endif %}
+          </div>
+          <div class="pcard__body">
+            <span class="pcard__cat">{{ product.category.name }}</span>
+            <h3 class="pcard__title"><a href="{% url 'product' %}">{{ product.name }}</a></h3>
+            <div class="pcard__price">
+              <span class="price-now">Rs. {{ product.price|floatformat:"0" }}</span>
+              {% if product.old_price %}<span class="price-was">Rs. {{ product.old_price|floatformat:"0" }}</span>{% endif %}
+            </div>
+          </div>
+        </article>
+        {% empty %}
+        <p>No featured products yet. Tick "Is featured" on some products in the admin.</p>
+        {% endfor %}
 
           </div>
           <p class="pgrid__empty" data-empty hidden>No products in this category yet — check back soon.</p>

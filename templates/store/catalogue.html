@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Shop | NEVA{% endblock %}
+
+{% block content %}
+<main id="main">
+  <section class="section" id="catalogue" aria-labelledby="shop-h">
+    <div class="container">
+
+      <div class="section__head">
+        <div>
+          <p class="eyebrow">Explore NEVA</p>
+          <h1 class="section__title" id="shop-h">Shop all products</h1>
+          <p>Discover nutritional products for your wellness routine.</p>
+        </div>
+      </div>
+
+      <!-- Search and category filter -->
+      <form method="get" action="{% url 'catalogue' %}" class="d-flex flex-wrap gap-2 mb-4" role="search">
+        <input type="search" name="q" class="form-control" style="max-width: 320px;"
+               placeholder="Search products..." value="{{ search_query }}" aria-label="Search products">
+
+        <select name="category" class="form-select" style="max-width: 220px;" aria-label="Filter by category">
+          <option value="">All categories</option>
+          {% for category in categories %}
+          <option value="{{ category.slug }}" {% if selected_category == category.slug %}selected{% endif %}>
+            {{ category.name }}
+          </option>
+          {% endfor %}
+        </select>
+
+        <button type="submit" class="btn-emp btn-emp--primary">Search</button>
+
+        {% if search_query or selected_category %}
+        <a href="{% url 'catalogue' %}" class="btn-emp btn-emp--ghost">Clear</a>
+        {% endif %}
+      </form>
+
+      <p class="eyebrow">
+        {{ page_obj.paginator.count }} product{{ page_obj.paginator.count|pluralize }} found
+      </p>
+
+      <!-- Product grid (shared card) -->
+      <div class="pgrid">
+        {% for product in products %}
+          {% include 'includes/product_card.html' %}
+        {% empty %}
+          <p>No products found. Try another search or category.</p>
+        {% endfor %}
+      </div>
+
+      <!-- Pagination -->
+      {% if page_obj.has_other_pages %}
+      <nav class="mt-4" aria-label="Product pages">
+        <ul class="pagination justify-content-center">
+          {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?{% if query_string %}{{ query_string }}&{% endif %}page={{ page_obj.previous_page_number }}">Previous</a>
+          </li>
+          {% endif %}
+
+          <li class="page-item disabled">
+            <span class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+          </li>
+
+          {% if page_obj.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?{% if query_string %}{{ query_string }}&{% endif %}page={{ page_obj.next_page_number }}">Next</a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+      {% endif %}
+
+    </div>
+  </section>
+</main>
+{% endblock %}

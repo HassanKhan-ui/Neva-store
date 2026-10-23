@@ -2,11 +2,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="icon" href="data:,">
     <script>document.documentElement.classList.add('js')</script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}NEVA{% endblock %}</title>
-    <meta name="description" content="Emporium is a free multi-category e-commerce website template built on Bootstrap 5 — product grid, filtering, slide-in cart, countdown deals, and a full product page. jQuery-free.">
+    <meta name="description" content="NEVA is an online store for vitamins, minerals and everyday nutritional supplements. Order online with cash on delivery.">
     <meta name="theme-color" content="#0c6b58">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +16,7 @@
 
     <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/neva.css' %}">
 
     {% block extra_css %}{% endblock %}
   </head>
@@ -71,8 +73,8 @@
 
     <!-- Toasts -->
     <div class="toasts" data-toasts aria-live="polite" aria-atomic="false"></div>
-
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    
+    <script src="{% static 'js/vendor/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
     {% block extra_js %}{% endblock %}
   </body>

@@ -1,0 +1,28 @@
+{% load static %}
+<article class="pcard reveal" data-category="{{ product.category.slug }}">
+  <div class="pcard__media">
+    {% if product.old_price %}<span class="badge-emp badge-emp--sale">Sale</span>{% endif %}
+    <a href="{% url 'product' %}" class="pcard__imglink">
+      {% if product.image %}
+        <img src="{{ product.image.url }}" width="300" height="300" loading="lazy" alt="{{ product.name }}">
+      {% else %}
+        <img src="{% static 'img/1.jpg' %}" width="300" height="300" loading="lazy" alt="{{ product.name }}">
+      {% endif %}
+    </a>
+    {% if product.in_stock %}
+    <button class="pcard__quick" type="button"
+      data-add-to-cart data-id="{{ product.id }}" data-name="{{ product.name }}" data-price="{{ product.price }}"
+      data-img="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/1.jpg' %}{% endif %}">Quick add</button>
+    {% else %}
+    <button class="pcard__quick" type="button" disabled>Out of stock</button>
+    {% endif %}
+  </div>
+  <div class="pcard__body">
+    <span class="pcard__cat">{{ product.category.name }}</span>
+    <h3 class="pcard__title"><a href="{% url 'product' %}">{{ product.name }}</a></h3>
+    <div class="pcard__price">
+      <span class="price-now">Rs. {{ product.price|floatformat:"0" }}</span>
+      {% if product.old_price %}<span class="price-was">Rs. {{ product.old_price|floatformat:"0" }}</span>{% endif %}
+    </div>
+  </div>
+</article>

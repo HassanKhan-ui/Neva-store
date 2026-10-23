@@ -3,32 +3,7 @@
 {% load static %}
 
 {% block content %}
- <!-- Mobile menu -->
-    <div class="emp-mobile" id="mobileMenu" hidden>
-      <form class="emp-search emp-search--mobile" role="search" aria-label="Search products">
-        <label for="qm" class="visually-hidden">Search products</label>
-        <input id="qm" type="search" class="emp-search__input" placeholder="Search products…" autocomplete="off">
-        <button type="submit" class="emp-search__btn" aria-label="Search">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
-      </form>
-      <nav aria-label="Mobile categories">
-        <ul class="emp-mobile__list">
-          <li><a href="#categories">All Categories</a></li>
-          <li><a href="#products" data-filter-link="electronics">Electronics</a></li>
-          <li><a href="#products" data-filter-link="home">Home &amp; Living</a></li>
-          <li><a href="#products" data-filter-link="fashion">Fashion</a></li>
-          <li><a href="#products" data-filter-link="sports">Sports</a></li>
-          <li><a href="#products" data-filter-link="beauty">Beauty</a></li>
-          <li><a href="#deals">Deals</a></li>
-        </ul>
-      </nav>
-      <div class="emp-mobile__foot">
-        <a href="#" class="btn-line">My account</a>
-        <a href="#" class="btn-line">Wishlist</a>
-      </div>
-    </div>
-
+ 
     <main id="main">
 
           <!-- Hero -->
@@ -40,8 +15,9 @@
               <h1 class="hero__title reveal">Daily wellness, <em>made simple.</em></h1>
               <p class="hero__lead reveal">Shop vitamins, minerals, multivitamins and omega oils to support your daily nutrition. Order online and pay with cash on delivery.</p>
               <div class="hero__cta reveal">
-                <a href="#products" class="btn-emp btn-emp--primary">Shop supplements</a>
-                <a href="#categories" class="btn-emp btn-emp--ghost">Browse categories</a>
+                
+              <a href="{% url 'catalogue' %}" class="btn-emp btn-emp--primary">Shop supplements</a>
+              <a href="#categories" class="btn-emp btn-emp--ghost">Browse categories</a>
               </div>
               <ul class="hero__meta reveal">
                 <li><strong>COD</strong> available</li>
@@ -68,7 +44,7 @@
               <p class="eyebrow">Browse the store</p>
               <h2 class="section__title" id="cat-h">Shop by category</h2>
             </div>
-            <a href="#products" class="section__link">View all products →</a>
+            <a href="{% url 'catalogue' %}" class="section__link">View all products →</a>
           </div>
           <div class="cats">
             {% for category in categories %}
@@ -141,154 +117,6 @@
 
           </div>
           <p class="pgrid__empty" data-empty hidden>No products in this category yet — check back soon.</p>
-        </div>
-      </section>
-
-      <!-- Best sellers scroll row -->
-      <section class="section section--tint" aria-labelledby="best-h">
-        <div class="container">
-          <div class="section__head">
-            <div>
-              <p class="eyebrow">Loved by shoppers</p>
-              <h2 class="section__title" id="best-h">This week's best sellers</h2>
-            </div>
-            <div class="scroller__nav" aria-hidden="true">
-              <button class="scroller__btn" type="button" data-scroll="prev" aria-label="Scroll best sellers left">‹</button>
-              <button class="scroller__btn" type="button" data-scroll="next" aria-label="Scroll best sellers right">›</button>
-            </div>
-          </div>
-          <div class="scroller" data-scroller tabindex="0" role="group" aria-label="Best sellers, scrollable">
-            <article class="scard">
-              <a href="product.html" class="scard__img"><img src={% static "img/best-speaker.jpg" %} width="240" height="240" loading="lazy" alt="Portable Bluetooth speaker in forest green"></a>
-              <div class="scard__body">
-                <h3 class="scard__title"><a href="product.html">Boom Mini Speaker</a></h3>
-                <div class="pcard__rate"><span class="stars" style="--rate:96%" aria-hidden="true"></span><span class="pcard__rnum">4.8</span></div>
-                <span class="price-now">$45.00</span>
-              </div>
-            </article>
-            <article class="scard">
-              <a href="product.html" class="scard__img"><img src={% static "img/best-backpack.jpg" %} width="240" height="240" loading="lazy" alt="Everyday commuter backpack in slate grey"></a>
-              <div class="scard__body">
-                <h3 class="scard__title"><a href="product.html">Transit Commuter Backpack</a></h3>
-                <div class="pcard__rate"><span class="stars" style="--rate:94%" aria-hidden="true"></span><span class="pcard__rnum">4.7</span></div>
-                <span class="price-now">$68.00</span>
-              </div>
-            </article>
-            <article class="scard">
-              <a href="product.html" class="scard__img"><img src={% static "img/best-bottle.jpg" %} width="240" height="240" loading="lazy" alt="Insulated stainless steel water bottle"></a>
-              <div class="scard__body">
-                <h3 class="scard__title"><a href="product.html">Hydra Insulated Bottle</a></h3>
-                <div class="pcard__rate"><span class="stars" style="--rate:92%" aria-hidden="true"></span><span class="pcard__rnum">4.6</span></div>
-                <span class="price-now">$24.00</span>
-              </div>
-            </article>
-            <article class="scard">
-              <a href="product.html" class="scard__img"><img src={% static "img/best-keyboard.jpg" %} width="240" height="240" loading="lazy" alt="Compact mechanical keyboard in white and grey"></a>
-              <div class="scard__body">
-                <h3 class="scard__title"><a href="product.html">Clack Mechanical Keyboard</a></h3>
-                <div class="pcard__rate"><span class="stars" style="--rate:98%" aria-hidden="true"></span><span class="pcard__rnum">4.9</span></div>
-                <span class="price-now">$79.00</span>
-              </div>
-            </article>
-            <article class="scard">
-              <a href="product.html" class="scard__img"><img src={% static "img/best-planter.jpg" %} width="240" height="240" loading="lazy" alt="Ceramic planter with a small potted plant"></a>
-              <div class="scard__body">
-                <h3 class="scard__title"><a href="product.html">Terra Ceramic Planter</a></h3>
-                <div class="pcard__rate"><span class="stars" style="--rate:90%" aria-hidden="true"></span><span class="pcard__rnum">4.5</span></div>
-                <span class="price-now">$32.00</span>
-              </div>
-            </article>
-            <article class="scard">
-              <a href="product.html" class="scard__img"><img src={% static "img/best-sunglasses.jpg" %} width="240" height="240" loading="lazy" alt="Classic tortoiseshell sunglasses"></a>
-              <div class="scard__body">
-                <h3 class="scard__title"><a href="product.html">Cove Polarized Sunglasses</a></h3>
-                <div class="pcard__rate"><span class="stars" style="--rate:94%" aria-hidden="true"></span><span class="pcard__rnum">4.7</span></div>
-                <span class="price-now">$52.00</span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Brand trust bar -->
-      <section class="trust" aria-label="Why shop with Emporium">
-        <div class="container">
-          <ul class="trust__list">
-            <li class="trust__item reveal">
-              <span class="trust__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M2 7h11v9H2zM13 10h5l3 3v3h-8z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="6" cy="18" r="1.8" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="18" r="1.8" stroke="currentColor" stroke-width="1.8"/></svg></span>
-              <span class="trust__txt"><strong>Free shipping</strong>On all orders over $49</span>
-            </li>
-            <li class="trust__item reveal">
-              <span class="trust__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.4-3 7.8-7 9-4-1.2-7-4.6-7-9V6l7-3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span class="trust__txt"><strong>Secure checkout</strong>256-bit SSL encryption</span>
-            </li>
-            <li class="trust__item reveal">
-              <span class="trust__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M20 12a8 8 0 1 1-2.3-5.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M20 4v4h-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span class="trust__txt"><strong>Easy returns</strong>30-day money-back promise</span>
-            </li>
-            <li class="trust__item reveal">
-              <span class="trust__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3a7 7 0 0 0-7 7v3a3 3 0 0 0 3 3h1v-6H7v-.5a5 5 0 0 1 10 0V13h-2v6h1a3 3 0 0 0 3-3v-3a7 7 0 0 0-7-7Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-              <span class="trust__txt"><strong>24/7 support</strong>Real people, any time zone</span>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- Testimonials -->
-      <section class="section" aria-labelledby="rev-h">
-        <div class="container">
-          <div class="section__head section__head--center">
-            <div>
-              <p class="eyebrow">What customers say</p>
-              <h2 class="section__title" id="rev-h">Over 40,000 five-star reviews</h2>
-            </div>
-          </div>
-          <div class="tgrid">
-            <figure class="tcard reveal">
-              <div class="pcard__rate"><span class="stars" style="--rate:100%" aria-hidden="true"></span></div>
-              <blockquote class="tcard__quote">“Ordered a lamp and a coffee maker on Sunday and both arrived Tuesday. Everything was packed properly and the prices genuinely beat the big marketplaces.”</blockquote>
-              <figcaption class="tcard__who">
-                <img src={% static "img/person-1.jpg" %} width="52" height="52" loading="lazy" alt="Portrait of Danielle Osei">
-                <span><strong>Danielle Osei</strong>Verified buyer · Home &amp; Living</span>
-              </figcaption>
-            </figure>
-            <figure class="tcard reveal">
-              <div class="pcard__rate"><span class="stars" style="--rate:100%" aria-hidden="true"></span></div>
-              <blockquote class="tcard__quote">“The Orbit earbuds were the deal of the day and I almost missed the countdown. So glad I didn't — the noise cancelling is better than pairs twice the price.”</blockquote>
-              <figcaption class="tcard__who">
-                <img src={% static "img/person-2.jpg" %} width="52" height="52" loading="lazy" alt="Portrait of Marcus Feld">
-                <span><strong>Marcus Feld</strong>Verified buyer · Electronics</span>
-              </figcaption>
-            </figure>
-            <figure class="tcard reveal">
-              <div class="pcard__rate"><span class="stars" style="--rate:90%" aria-hidden="true"></span></div>
-              <blockquote class="tcard__quote">“Returns were painless. A size didn't fit, I printed the label from my account, and the refund was back on my card within three days. That's why I keep coming back.”</blockquote>
-              <figcaption class="tcard__who">
-                <img src={% static "img/person-3.jpg" %} width="52" height="52" loading="lazy" alt="Portrait of Priya Raman">
-                <span><strong>Priya Raman</strong>Verified buyer · Fashion</span>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <!-- Newsletter -->
-      <section class="news" aria-labelledby="news-h">
-        <div class="container">
-          <div class="news__card reveal">
-            <div class="news__copy">
-              <h2 class="news__title" id="news-h">Get $10 off your first order</h2>
-              <p class="news__lead">Join the list for early access to deals, restock alerts and members-only prices. One email a week, unsubscribe any time.</p>
-            </div>
-            <form class="news__form" novalidate data-newsletter>
-              <div class="news__field">
-                <label for="news-email" class="visually-hidden">Email address</label>
-                <input id="news-email" type="email" name="email" class="news__input" placeholder="you@example.com" required aria-describedby="news-msg">
-                <button type="submit" class="btn-emp btn-emp--primary">Subscribe</button>
-              </div>
-              <p class="news__msg" id="news-msg" role="status" aria-live="polite"></p>
-            </form>
-          </div>
         </div>
       </section>
 

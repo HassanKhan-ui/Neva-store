@@ -2,59 +2,75 @@
 
 <!-- Header / Navbar -->
 <header class="site-header" id="site-header">
-    <div class="container">
+  <div class="container">
     <nav class="navbar navbar-expand-lg emp-nav" aria-label="Main navigation">
-        <a class="navbar-brand emp-brand" href="{% url 'home' %}" aria-label="NEVA home">            <span class="emp-brand__mark" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <a class="navbar-brand emp-brand" href="{% url 'home' %}" aria-label="NEVA home">
+        <span class="emp-brand__mark" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4 8h18l-1.6 9.2a2 2 0 0 1-2 1.6H7.6a2 2 0 0 1-2-1.6L4 8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
             <path d="M9 8V6.5a4 4 0 0 1 8 0V8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
+          </svg>
         </span>
-        <span class="emp-brand__name">Neva</span>
-        </a>
+        <span class="emp-brand__name">NEVA</span>
+      </a>
 
-        <!-- Search (desktop) -->
-        <form class="emp-search" role="search" aria-label="Search products">
+      <!-- Search (desktop). Connected to the shop page on Day 6 -->
+      <form class="emp-search" role="search" aria-label="Search products">
         <label for="q" class="visually-hidden">Search products</label>
-        <input id="q" type="search" class="emp-search__input" placeholder="Search for products, brands and more…" autocomplete="off">
+        <input id="q" type="search" class="emp-search__input" placeholder="Search vitamins, minerals and more…" autocomplete="off">
         <button type="submit" class="emp-search__btn" aria-label="Search">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
-        </form>
+      </form>
 
-        <div class="emp-nav__actions">
-        <a href="#" class="emp-iconlink" aria-label="Wishlist">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20s-7-4.35-9.2-8.3C1.1 8.4 2.6 5 6 5c2 0 3.2 1.2 4 2.3C10.8 6.2 12 5 14 5c3.4 0 4.9 3.4 3.2 6.7C19 15.65 12 20 12 20Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-            <span class="visually-hidden">Wishlist</span>
-        </a>
+      <div class="emp-nav__actions">
         <a href="#" class="emp-iconlink" aria-label="Account">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M5 20c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-            <span class="visually-hidden">Account</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M5 20c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span class="visually-hidden">Account</span>
         </a>
         <button type="button" class="emp-cartpill" data-cart-open aria-label="Open cart">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16l-1.4 8.1a2 2 0 0 1-2 1.7H7.4a2 2 0 0 1-2-1.7L4 6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="9" cy="20" r="1.4" fill="currentColor"/><circle cx="17" cy="20" r="1.4" fill="currentColor"/></svg>
-            <span class="emp-cartpill__label">Cart</span>
-            <span class="emp-cartpill__count" data-cart-count>0</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16l-1.4 8.1a2 2 0 0 1-2 1.7H7.4a2 2 0 0 1-2-1.7L4 6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="9" cy="20" r="1.4" fill="currentColor"/><circle cx="17" cy="20" r="1.4" fill="currentColor"/></svg>
+          <span class="emp-cartpill__label">Cart</span>
+          <span class="emp-cartpill__count" data-cart-count>0</span>
         </button>
         <button class="emp-burger" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu" data-menu-toggle>
-            <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
         </button>
-        </div>
+      </div>
     </nav>
-    </div>
+  </div>
 
-    <!-- Categories row (desktop) -->
-    <div class="emp-catbar">
+  <!-- Categories row (desktop) -->
+  <div class="emp-catbar">
     <div class="container">
-        <ul class="emp-catbar__list" aria-label="Shop categories">
+      <ul class="emp-catbar__list" aria-label="Shop categories">
         <li><a href="{% url 'home' %}#categories">All Categories</a></li>
-        <li><a href="{% url 'home' %}#products">Electronics</a></li>
-        <li><a href="{% url 'home' %}#products">Home &amp; Living</a></li>
-        <li><a href="{% url 'home' %}#products">Fashion</a></li>
-        <li><a href="{% url 'home' %}#products">Sports</a></li>
-        <li><a href="{% url 'home' %}#products">Beauty</a></li>
-        <li><a href="{% url 'home' %}#deals">Deals</a></li>
-        </ul>
+        {% for category in nav_categories %}
+        <li><a href="{% url 'home' %}#products" data-filter-link="{{ category.slug }}">{{ category.name }}</a></li>
+        {% endfor %}
+      </ul>
     </div>
-    </div>
+  </div>
 </header>
+
+<!-- Mobile menu -->
+<div class="emp-mobile" id="mobileMenu" hidden>
+  <form class="emp-search emp-search--mobile" role="search" aria-label="Search products">
+    <label for="qm" class="visually-hidden">Search products</label>
+    <input id="qm" type="search" class="emp-search__input" placeholder="Search products…" autocomplete="off">
+    <button type="submit" class="emp-search__btn" aria-label="Search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </form>
+  <nav aria-label="Mobile categories">
+    <ul class="emp-mobile__list">
+      <li><a href="{% url 'home' %}#categories">All Categories</a></li>
+      {% for category in nav_categories %}
+      <li><a href="{% url 'home' %}#products" data-filter-link="{{ category.slug }}">{{ category.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+  <div class="emp-mobile__foot">
+    <a href="#" class="btn-line">My account</a>
+  </div>
+</div>

@@ -281,48 +281,12 @@
 
       </div>
     </main>
-    
-    <!-- Cart drawer -->
-    <div class="cart-overlay" data-cart-overlay hidden></div>
-    <aside class="cart" id="cartDrawer" aria-label="Shopping cart" aria-modal="true" role="dialog" aria-hidden="true" tabindex="-1">
-      <div class="cart__head">
-        <h2 class="cart__title">Your cart <span data-cart-count-text>(0)</span></h2>
-        <button type="button" class="cart__close" data-cart-close aria-label="Close cart">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
-      </div>
-      <div class="cart__ship" data-ship-wrap>
-        <p class="cart__shipmsg" data-ship-msg>Add <strong>$49.00</strong> more for free shipping</p>
-        <div class="cart__shipbar"><span data-ship-bar style="width:0%"></span></div>
-      </div>
-      <ul class="cart__items" data-cart-items></ul>
-      <div class="cart__empty" data-cart-empty>
-        <p>Your cart is empty.</p>
-        <button type="button" class="btn-emp btn-emp--ghost" data-cart-close>Start shopping</button>
-      </div>
-      <div class="cart__foot" data-cart-foot hidden>
-        <div class="cart__subtotal">
-          <span>Subtotal</span>
-          <strong data-cart-subtotal>$0.00</strong>
-        </div>
-        <p class="cart__note">Shipping &amp; taxes calculated at checkout.</p>
-        <button type="button" class="btn-emp btn-emp--primary btn-emp--block">Checkout</button>
-        <button type="button" class="cart__continue" data-cart-close>Continue shopping</button>
-      </div>
-    </aside>
 
     <!-- Lightbox -->
     <div class="lightbox" data-lightbox hidden role="dialog" aria-modal="true" aria-label="Product image viewer">
       <button class="lightbox__close" type="button" data-lightbox-close aria-label="Close image viewer">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
-      <img src="img/product-headphones.jpg" width="900" height="900" alt="Enlarged product image" data-lightbox-img>
-    </div>
+      <img src="{% static 'img/product-headphones.jpg' %}" width="900" height="900" alt="Enlarged product image" data-lightbox-img>
 
-    <!-- Toasts -->
-    <div class="toasts" data-toasts aria-live="polite" aria-atomic="false"></div>
-
-  
-  </body>
-</html>
 {% endblock %}
